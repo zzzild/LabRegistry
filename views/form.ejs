@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/styling/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+
+  
+    <h1 class="text-center"><%= title %></h1>
+    <form class="row g-3" action="/tambah" method="post">
+        <div class="col-md-6">
+          <label for="nama" class="form-label">Nama</label>
+          <input type="text" name="nama" class="form-control" id="inputNama" placeholder="Masukan Nama">
+        </div>
+        <div class="col-md-6">
+          <label for="npm" class="form-label">Npm</label>
+          <input type="number" name="npm" class="form-control" id="inputNpm" placeholder="Masukan Npm">
+        </div>
+        <div class="col-md-6">
+          <label for="kelas" class="form-label">Kelas</label>
+          <input type="text" name="kelas" class="form-control" id="inputKelas" placeholder="Masukan Kelas">
+        </div>
+        <div class="col-md-6">
+          <label for="jurusan" class="form-label">Jurusan</label>
+          <input type="text" name="jurusan" class="form-control" id="inputJurusan" placeholder="Masukan Jurusan">
+        </div>
+        <div class="col-md-6">
+          <label for="lokasi" class="form-label">Lokasi</label>
+          <input type="text" name="lokasi" class="form-control" id="inputLokasi" placeholder="Masukan Lokasi">
+        </div>
+        <div class="col-md-6">
+          <label for="ttl" class="form-label">Tanggal lahir</label>
+          <input type="date" name="ttl" class="form-control" id="inputTTL">
+        </div>
+        <div class="col-md-6">
+          <label for="gender">Jenis Kelamin:</label>
+          <select name="gender" id="jenisKelamin">
+              <option value="Laki-laki">Laki-laki</option>
+              <option value="Perempuan">Perempuan</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label for="posisi">Posisi:</label>
+          <select name="posisi" id="posisi">
+              <option value="Asisten">Asisten</option>
+              <option value="Programer">Programer</option>
+          </select>
+        </div>
+        <div class="col-12">
+          <label for="inputAlamat" class="form-label">Alamat</label>
+          <input type="text" name="alamat" class="form-control" id="inputAlamat" placeholder="Masukan alamat anda">
+        </div>
+        <div class="col-md-6">
+          <label for="noHandphone" class="form-label">No Handphone</label>
+          <input type="number" name="noHandphone" class="form-control" id="noHandphone" placeholder="Masukan No Handphone">
+        </div>
+        <div class="col-md-6">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Masukan Email">
+        </div>
+        
+        <div class="col-md-6">
+          <label for="ipk" class="form-label">IPK</label>
+          <input type="number" name="ipk" class="form-control" id="inputIpk" placeholder="Masukan Ipk">
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary" value="Tambahkan">Send</button>
+        </div>
+      </form>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabel pendaftaran</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+      .navbar-nav a:hover {
+  text-decoration: none;
+  color: #fff !important;
+  opacity: 1 !important;
+  box-shadow: 0 2px 0 0 #fff;
+}
+
+.navbar-nav a {
+  transition: box-shadow .5s;
+}
+    </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg p-4" style="background-color: #0B60B0; ">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-medium" href="#" style="color: #FFF6E9; font-family: monospace;">Apex<span class="link-info">Control</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+          <ul class="navbar-nav fs-6" >
+            <li class="nav-item " >
+              <a class="nav-link fw-medium  active mr-4 link-info " aria-current="page" href="#" style="padding: 15px; ">Dashboard</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link fw-medium active mr-4 link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="#" style="padding: 15px; ">Recordings</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link fw-medium active mr-4 link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="#" style="padding: 15px;">Reports</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link fw-medium link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="#" style="padding: 15px;">Account</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link fw-medium active mr-4 link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover " href="#" style="padding: 15px;">Help & Support</a>
+            </li>
+          </ul>
+      </div>
+    </div>
+  </nav>  
+
+  <div class="wrapper mt-4">
+    <div class="judul">
+        <h3><%= title %></h3>
+    </div>  
+  
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">Nama</th>
+            <th scope="col">Npm</th>
+            <th scope="col">Kelas</th>
+            <th scope="col">Jurusan</th>
+            <th scope="col">Lokasi</th>
+            <th scope="col">TTL</th>
+            <th scope="col">Jenis Kelamin</th>
+            <th scope="col">Alamat</th>
+            <th scope="col">No hp</th>
+            <th scope="col">Email</th>
+            <th scope="col">Posisi</th>
+            <th scope="col">IPK</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% for (let user of users){ %>
+                <tr> 
+                <th scope="row"><%= user.id %> </th>
+                <th scope="row"><%= user.Nama %> </th>
+                <th scope="row"><%= user.Npm %> </th>
+                <th scope="row"><%= user.Kelas %></th>
+                <th scope="row"><%= user.Jurusan %></th>
+                <th scope="row"><%= user.Lokasi %></th>
+                <th scope="row"><%= user.TTL %></th>
+                <th scope="row"><%= user.JenisKelamin %></th>
+                <th scope="row"><%= user.Alamat %></th>
+                <th scope="row"><%= user.NoHandphone %></th>
+                <th scope="row"><%= user.Email %></th>
+                <th scope="row"><%= user.Posisi %></th>
+                <th scope="row"><%= user.IPK %></th>
+                
+            </tr>
+            <% } %>
+        </tbody>
+      </table>
+  </div>
+
+      
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -21,7 +21,7 @@
           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        .wrapper{
+        .wrapper , .container{
           margin-left: 7%;    
         }
     </style>
@@ -57,57 +57,117 @@
 
   <div class="wrapper mt-5 ">
       <h3 class="fs-2 fw-normal mb-4 text-secondary" style="font-family: Georgia, 'Times New Roman', Times, serif;">Recordings</h3>
-    <div class="judul ">
-      <h3 class="fs-6 fw-light"><%= title %></h3>
-    </div>  
-  
-    <div class="container">
-    <div class="table-responsive">
-
-      <table class="table table-striped table-hover mx-aut" style="overflow-x: auto;">
-          <thead>
-            <tr>
-              <th scope="col-">id</th>
-              <th scope="col">Nama</th>
-              <th scope="col">Npm</th>
-              <th scope="col">Kelas</th>
-              <th scope="col">Jurusan</th>
-              <th scope="col">Lokasi</th>
-              <th scope="col">TTL</th>
-              <th scope="col">Jenis Kelamin</th>
-              <th scope="col">Alamat</th>
-              <th scope="col">No hp</th>
-              <th scope="col">Email</th>
-              <th scope="col">Posisi</th>
-              <th scope="col">IPK</th>
-            </tr>
-          </thead>
-          <tbody>
-              <% for (let user of users){ %>
-                  <tr> 
-                  <th scope="row"><%= user.id %> </th>
-                  <th scope="row"><%= user.Nama %> </th>
-                  <th scope="row"><%= user.Npm %> </th>
-                  <th scope="row"><%= user.Kelas %></th>
-                  <th scope="row"><%= user.Jurusan %></th>
-                  <th scope="row"><%= user.Lokasi %></th>
-                  <th scope="row"><%= user.TTL %></th>
-                  <th scope="row"><%= user.JenisKelamin %></th>
-                  <th scope="row"><%= user.Alamat %></th>
-                  <th scope="row"><%= user.NoHandphone %></th>
-                  <th scope="row"><%= user.Email %></th>
-                  <th scope="row"><%= user.Posisi %></th>
-                  <th scope="row"><%= user.IPK %></th>
-                  
-              </tr>
-              <% } %>
-          </tbody>
-        </table>
-    </div>
-    </div>
+    <div class="judul">
+      <h3 class="fs-6 fw-light"></h3>
+      <ul class="nav nav-underline">
+        <li class="nav-item">
+          <a class="nav-link active link-secondary"  data-content="home" href="#"><%= title %></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link  link-secondary" style="padding: 10px;" data-content="acc" href="#">Diterima</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link link-secondary" style="padding: 10px;" data-content="member" href="#">Anggota</a>
+        </li>
+      </ul>
+    </div>   
   </div>
+    <hr>
 
-      
+    <div class="content">
+      <div id="home" class="page-content">
+        <div class="container">
+          <div class="table-responsive">
+            <table class="table table-striped table-hover mx-aut" style="overflow-x: auto;">
+                <thead>
+                  <tr>
+                    <th scope="col-">id</th>
+                    <th scope="col">Nama</th>
+                    <th scope="col">Npm</th>
+                    <th scope="col">Kelas</th>
+                    <th scope="col">Jurusan</th>
+                    <th scope="col">Lokasi</th>
+                    <th scope="col">TTL</th>
+                    <th scope="col">Jenis Kelamin</th>
+                    <th scope="col">Alamat</th>
+                    <th scope="col">No hp</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Posisi</th>
+                    <th scope="col">IPK</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <% for (let user of users){ %>
+                        <tr> 
+                        <th scope="row"><%= user.id %> </th>
+                        <th scope="row"><%= user.Nama %> </th>
+                        <th scope="row"><%= user.Npm %> </th>
+                        <th scope="row"><%= user.Kelas %></th>
+                        <th scope="row"><%= user.Jurusan %></th>
+                        <th scope="row"><%= user.Lokasi %></th>
+                        <th scope="row"><%= user.TTL %></th>
+                        <th scope="row"><%= user.JenisKelamin %></th>
+                        <th scope="row"><%= user.Alamat %></th>
+                        <th scope="row"><%= user.NoHandphone %></th>
+                        <th scope="row"><%= user.Email %></th>
+                        <th scope="row"><%= user.Posisi %></th>
+                        <th scope="row"><%= user.IPK %></th>
+                        
+                    </tr>
+                    <% } %>
+                </tbody>
+              </table>
+          </div>
+          </div>
+      </div>
+
+      <div id="acc" class="page-content wrapper">
+        <h1>acc</h1>
+      </div>
+
+      <div id="member" class="page-content wrapper">
+        <h1>member</h1>
+      </div>
+
+    </div>
+  
+    
+  
+
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+      const menuLinks = document.querySelectorAll(".nav-link");
+      const pageContents = document.querySelectorAll(".page-content");
+    
+      pageContents.forEach(function (content) {
+        content.style.display = "none"; // Hide all page contents by default
+      });
+
+      document.getElementById("home").style.display = "block";
+
+      menuLinks.forEach(function (link) {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          const contentId = link.getAttribute("data-content");
+          menuLinks.forEach(function (link) {
+          link.classList.remove('active');
+        });
+
+        link.classList.add('active');
+        pageContents.forEach(function (content) {
+          content.classList.remove('active');
+        });
+        
+        document.getElementById(contentId).classList.add('active');
+          pageContents.forEach(function (content) {
+            content.style.display = "none";
+          });
+
+          document.getElementById(contentId).style.display = "block";
+        });
+      });
+    });
+      </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>

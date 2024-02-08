@@ -7,8 +7,11 @@ router.get("/index", (req,res) => {
     db.query(sql, (err,result) => {
         const users = JSON.parse(JSON.stringify(result))
         
-        res.render("index", {users: users, title: "Daftar siswa"})
+        res.render("index", {users: users, title: "Pendaftar"})
     })
 })
 
 module.exports = router;
+
+// fitur
+

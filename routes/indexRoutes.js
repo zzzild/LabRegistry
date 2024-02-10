@@ -11,7 +11,18 @@ router.get("/index", (req,res) => {
     })
 })
 
-module.exports = router;
+router.delete("/users/:userId", (req, res) => {
+    const userId = req.params.userId;
+    const sql = "DELETE FROM datapendaftar WHERE id = ?";
+    db.query(sql, userId, (err, result) => {
+        if (err) {
+            console.error('Error:', err);
+            res.status(500).send('Internal Server Error');
+        } else {
+            res.status(200).send('User deleted successfully');
+        }
+    });
+});
 
-// fitur
+module.exports = router;
 
